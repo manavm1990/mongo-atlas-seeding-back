@@ -9,4 +9,6 @@ export default {
   dbAtlas: process.env.DB_CLIENT_URL,
   dbLocal:
     "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000",
+  dbName: process.env.DB_NAME,
+  dbCollection: process.env.DB_COLLECTION,
 };
