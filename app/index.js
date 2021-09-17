@@ -11,9 +11,12 @@ app.get("/", (_, res) => {
 });
 
 // Logging middleware
-app.use(pino());
-
-// TODO: Use json middleware (if needed)
+app.use(
+  pino({
+    prettyPrint: { colorize: true, levelFirst: true },
+    messageFormat: "{levelLabel} - {pid} - url:{request.url}",
+  })
+);
 
 // TODO: Mount the routes (maybe 🤔 /api)
 
