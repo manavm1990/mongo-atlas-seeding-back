@@ -1,13 +1,13 @@
 import Router from "express";
-import adminController from "./controllers/admin.js";
+import dataController from "./controller.js";
 
 const router = new Router();
 
-router.post("/admin", async ({ body: { password } }, res) => {
+router.get("/seed", (_, res) => {
   try {
-    res.json(await adminController.show(password));
+    res.json(dataController.init());
   } catch (err) {
-    res.status(400).send(err);
+    res.status(500).send(err);
   }
 });
 
