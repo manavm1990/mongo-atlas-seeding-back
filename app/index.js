@@ -2,7 +2,7 @@
 import express from "express";
 import pino from "express-pino-logger";
 import config from "./config.js";
-// TODO: Import the routes
+import apiRouter from "./router.js";
 
 const app = express();
 
@@ -18,7 +18,8 @@ app.use(
   })
 );
 
-// TODO: Mount the routes (maybe 🤔 /api)
+app.use(express.json());
+app.use("/api", apiRouter);
 
 app.listen(config.port, () => {
   console.log(`Server 🏃🏾‍♂️ at: http://localhost:${config.port}`);
